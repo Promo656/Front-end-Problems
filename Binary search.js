@@ -79,18 +79,18 @@ const solution3 = (arr) => {
 const Solution4 = (a1, a2, n, m) => {
     const sortedArr = a1.sort((a, b) => a - b);
     let result = [];
-    let start = 0;
-    let end = sortedArr.length - 1;
+    let start
+    let end
     let mid;
     for (let i = 0; i < m; i++) {
+        start = 0;
+        end = sortedArr.length - 1
         while (end - start >= 0) {
             mid = start + Math.floor((end - start) / 2);
 
             if (sortedArr[mid] === a2[i]) {
                 result.push(a2[i]);
                 sortedArr.splice(mid, 1)
-                start = 0;
-                end = sortedArr.length - 1
                 break;
             } else if (sortedArr[mid] > a2[i]) {
                 end = mid - 1;
