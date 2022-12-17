@@ -76,7 +76,7 @@ const solution3 = (arr) => {
 // console.timeEnd("solution3");
 
 
-const Solution4 = (a1, a2, n, m) => {
+const solution4 = (a1, a2, n, m) => {
     const sortedArr = a1.sort((a, b) => a - b);
     let result = [];
     let start
@@ -103,6 +103,25 @@ const Solution4 = (a1, a2, n, m) => {
         ? "Yes"
         : "No";
 }
-console.time("solution4");
-console.log(Solution4([11, 1, 13, 21, 3, 7], [11, 3, 7, 1], 6, 4));
-console.timeEnd("solution4");
+// console.time("solution4");
+// console.log(solution4([11, 1, 13, 21, 3, 7], [11, 3, 7, 1], 6, 4));
+// console.timeEnd("solution4");
+
+const solution5 = (a) => {
+    let start = 0;
+    let end = a.length - 1;
+    let middle;
+    while (start < end) {
+        middle = start + Math.floor((end - start) / 2);
+
+        if (a[middle] > a[middle + 1]) {
+            end = middle;
+        } else {
+            start = middle + 1;
+        }
+    }
+    return a[end];
+}
+console.time("solution5");
+console.log(solution5([10, 23, 32, 46, 54, 61, 74, 62, 59, 48, 36, 25, 13]));
+console.timeEnd("solution5");
