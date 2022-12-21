@@ -24,10 +24,7 @@ const solution1 = (arr, n, x) => {
 
     return [findIdx("first"), findIdx("last")];
 }
-
-// console.time("solution1");
 // console.log(solution1([1, 3, 5, 5, 5, 5, 67, 123, 125], 9, 5))
-// console.timeEnd("solution1");
 
 //--------------------------------------------------------------------------------------------//
 
@@ -50,10 +47,7 @@ const solution2 = (arr, n, k) => {
     }
     return -1;
 }
-
-// console.time("solution2");
 // console.log(solution2([1, 3, 5, 5, 5, 5, 67, 123, 125], 9, 5));
-// console.timeEnd("solution2");
 
 //--------------------------------------------------------------------------------------------//
 
@@ -70,11 +64,9 @@ const solution3 = (arr) => {
     }
     return arr[end]
 }
-
-// console.time("solution3");
 // console.log(solution3([4, 6, 8, 9, 10, 12, 13, 14, 15, 27, 18, 23, 24, 26, 27, 29, 34, 35, 37, 38, 2,]));
-// console.timeEnd("solution3");
 
+//--------------------------------------------------------------------------------------------//
 
 const solution4 = (a1, a2, n, m) => {
     const sortedArr = a1.sort((a, b) => a - b);
@@ -103,9 +95,9 @@ const solution4 = (a1, a2, n, m) => {
         ? "Yes"
         : "No";
 }
-// console.time("solution4");
 // console.log(solution4([11, 1, 13, 21, 3, 7], [11, 3, 7, 1], 6, 4));
-// console.timeEnd("solution4");
+
+//--------------------------------------------------------------------------------------------//
 
 const solution5 = (a) => {
     let start = 0;
@@ -122,6 +114,4 @@ const solution5 = (a) => {
     }
     return a[end];
 }
-console.time("solution5");
-console.log(solution5([10, 23, 32, 46, 54, 61, 74, 62, 59, 48, 36, 25, 13]));
-console.timeEnd("solution5");
+// console.log(solution5([10, 23, 32, 46, 54, 61, 74, 62, 59, 48, 36, 25, 13]));
