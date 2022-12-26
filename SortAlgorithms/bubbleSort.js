@@ -20,7 +20,6 @@ function solution1(s) {
     const arr = s.split(" ");
     let check;
     let len = arr.length;
-
     do {
         check = false;
         for (let i = 0; i < len; i++) {
