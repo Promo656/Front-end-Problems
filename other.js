@@ -1,4 +1,4 @@
-function solution1(nums) {
+const solution1 = (nums) => {
     const result = [];
     const odd = [];
     const even = [];
@@ -17,3 +17,9 @@ function solution1(nums) {
 
     return result;
 }
+
+const solution2 = (nums) => {
+    const result = [];
+    nums.map(el => el % 2 !== 0 ? result.push(el) : result.unshift(el));
+    return result;
+};
