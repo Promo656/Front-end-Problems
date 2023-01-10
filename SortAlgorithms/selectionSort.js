@@ -1,5 +1,4 @@
 const selectionSort = (arr) => {
-    debugger
     const len = arr.length;
     let minIdx;
     for (let i = 0; i < len - 1; i++) {
