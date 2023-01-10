@@ -1,23 +1,32 @@
 // Implement Array.prototype.map
-Array.prototype.myMap = function (callback, thisArg) {
+Array.prototype.myMap = function (callbackFn, thisArg) {
     if (
-        typeof callback !== "function" ||
-        !callback.call ||
-        !callback.apply
+        typeof callbackFn !== "function" ||
+        !callbackFn.call ||
+        !callbackFn.apply
     ) {
-        throw new TypeError(`${callback} is not a function`);
+        throw new TypeError(`${callbackFn} is not a function`)
     }
 
     const len = this.length;
     const array = new Array(len);
-    let k = 0;
 
-    while (k < len) {
-        if (Object.hasOwn(this, k)) {
-            array[k] = callback.call(thisArg, this[k], k, this)
+    for (let i = 0; i < len; i++) {
+        if (Object.hasOwn(this, i)) {
+            array[i] = callbackFn.call(thisArg, this[i], i, this);
         }
-        k++;
+    }
+    return array;
+};
+
+// Implement Array.prototype.square
+Array.prototype.square = function () {
+    const len = this.length;
+    const array = new Array(len);
+
+    for (let i = 0; i < len; i++) {
+        array[i] = this[i] * this[i];
     }
 
     return array;
-};
+}
