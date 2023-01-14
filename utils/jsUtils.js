@@ -30,3 +30,18 @@ Array.prototype.square = function () {
 
     return array;
 }
+
+// Implement Lodash's Get method
+export default function get(object, path, defaultValue) {
+    const pathArray = Array.isArray(path) ? path : path.split('.');
+    const length = pathArray.length;
+    let lastObject = object;
+    let i = 0;
+
+    for (i; lastObject != null && i < length; i++) {
+        lastObject = lastObject[String(pathArray[i])]
+    }
+
+    const value = i && i === length ? lastObject : undefined;
+    return value !== undefined ? lastObject : defaultValue;
+}
