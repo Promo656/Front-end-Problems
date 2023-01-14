@@ -32,7 +32,7 @@ Array.prototype.square = function () {
 }
 
 // Implement Lodash's Get method
-export default function get(object, path, defaultValue) {
+function get(object, path, defaultValue) {
     const pathArray = Array.isArray(path) ? path : path.split('.');
     const length = pathArray.length;
     let lastObject = object;
@@ -44,4 +44,17 @@ export default function get(object, path, defaultValue) {
 
     const value = i && i === length ? lastObject : undefined;
     return value !== undefined ? lastObject : defaultValue;
+}
+
+// Implement Lodash's Once method
+function once(func) {
+    let instance = null;
+
+    return function (...args) {
+        if (!instance) {
+            instance = func.apply(this, args);
+        }
+
+        return instance;
+    };
 }
