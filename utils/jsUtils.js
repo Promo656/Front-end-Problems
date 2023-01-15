@@ -1,10 +1,6 @@
 // Implement Array.prototype.map
 Array.prototype.myMap = function (callbackFn, thisArg) {
-    if (
-        typeof callbackFn !== "function" ||
-        !callbackFn.call ||
-        !callbackFn.apply
-    ) {
+    if (typeof callbackFn !== "function" || !callbackFn.call || !callbackFn.apply) {
         throw new TypeError(`${callbackFn} is not a function`)
     }
 
@@ -58,3 +54,62 @@ function once(func) {
         return instance;
     };
 }
+
+// Implement Type utilities
+function isBoolean(value) {
+    return typeof value === "boolean"
+}
+
+function isNumber(value) {
+    return typeof value === "number"
+}
+
+function isNull(value) {
+    return value === null
+}
+
+function isString(value) {
+    return typeof value === "string"
+}
+
+function isSymbol(value) {
+    return typeof value === "symbol"
+}
+
+function isUndefined(value) {
+    return value === undefined
+}
+
+// Implement Unique Array
+// 1. Converting to Set then back
+function uniqueArray1(array) {
+    return Array.from(new Set(array));
+}
+
+// 2. Using Set to track existing elements
+function uniqueArray2(array) {
+    const seen = new Set();
+
+    array.forEach(item => {
+        if (!seen.has(item)) {
+            seen.add(item)
+        }
+    })
+    return [...seen];
+}
+
+// 3. Brute force approach
+function uniqueArray3(array) {
+    const result = [];
+
+    array.forEach(item => {
+        if (!result.includes(item)) {
+            result.push(item)
+        }
+    })
+    return result;
+}
+
+console.log(
+    uniqueArray2(Array.from({length: 20}, () => Math.floor(Math.random() * 20)))
+)
