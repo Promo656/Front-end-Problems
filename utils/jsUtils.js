@@ -113,3 +113,30 @@ function uniqueArray3(array) {
 console.log(
     uniqueArray2(Array.from({length: 20}, () => Math.floor(Math.random() * 20)))
 )
+
+
+// Implement Array.prototype.filter
+Array.prototype.myFilter = function (callbackFn, thisArg) {
+    if (
+        typeof callbackFn !== "function" ||
+        !callbackFn.call ||
+        !callbackFn.apply
+    ) {
+        throw new Error(`${callbackFn} is not a function`)
+    }
+
+    const length = this.length;
+    const result = [];
+    let j = 0;
+
+    for (let i = 0; i < length; i++) {
+        const check = callbackFn.call(thisArg, this[i], i, this);
+        const hasOwn = Object.hasOwn(this, i)
+        if (check && hasOwn) {
+            result[j] = this[i];
+            j++;
+        }
+    }
+
+    return result;
+};
