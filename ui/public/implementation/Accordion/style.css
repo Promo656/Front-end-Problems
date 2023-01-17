@@ -1,0 +1,19 @@
+.accordion, .accordion_item {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion_item{
+    border-bottom: 1px solid silver;
+}
+
+button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    text-align: start;
+}
+
+button:hover {
+    background-color: silver;
+}
