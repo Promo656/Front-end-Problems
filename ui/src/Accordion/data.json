@@ -1,0 +1,14 @@
+[
+  {
+    "title": "HTML",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti deserunt dolorum illo placeat recusandae repellat sint. Aliquid animi, id, in laboriosam, magnam maxime quae quia repellendus rerum soluta voluptates!"
+  },
+  {
+    "title": "CSS",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti deserunt dolorum illo placeat recusandae repellat sint. Aliquid animi, id, in laboriosam, magnam maxime quae quia repellendus rerum soluta voluptates!"
+  },
+  {
+    "title": "JS",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti deserunt dolorum illo placeat recusandae repellat sint. Aliquid animi, id, in laboriosam, magnam maxime quae quia repellendus rerum soluta voluptates!"
+  }
+]

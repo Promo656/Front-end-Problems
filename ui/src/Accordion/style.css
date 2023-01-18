@@ -1,0 +1,26 @@
+.accordion_item, .accordion_up {
+    display: flex;
+}
+
+.accordion_item {
+    flex-direction: column;
+}
+
+.accordion_up {
+    align-items: center;
+}
+
+button {
+    border: none;
+    text-align: start;
+    background-color: transparent;
+}
+
+button:hover {
+    background-color: silver;
+}
+
+.arrow{
+    transform:rotate(45deg);
+}
+
