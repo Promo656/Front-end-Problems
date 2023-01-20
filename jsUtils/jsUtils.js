@@ -110,18 +110,12 @@ function uniqueArray3(array) {
     return result;
 }
 
-console.log(
-    uniqueArray2(Array.from({length: 20}, () => Math.floor(Math.random() * 20)))
-)
+console.log(uniqueArray2(Array.from({length: 20}, () => Math.floor(Math.random() * 20))))
 
 
 // Implement Array.prototype.filter
 Array.prototype.myFilter = function (callbackFn, thisArg) {
-    if (
-        typeof callbackFn !== "function" ||
-        !callbackFn.call ||
-        !callbackFn.apply
-    ) {
+    if (typeof callbackFn !== "function" || !callbackFn.call || !callbackFn.apply) {
         throw new Error(`${callbackFn} is not a function`)
     }
 
@@ -150,10 +144,24 @@ Function.prototype.myBind = function (thisArg, ...boundArgs) {
     }
     return function (...args) {
         debugger
-        return Function.prototype.apply.call(originalFunc, thisArg, [
-            ...boundArgs,
-            ...args,
-        ]);
+        return Function.prototype.apply.call(originalFunc, thisArg, [...boundArgs, ...args,]);
     };
 };
 
+// Implement Promise.race
+Promise.myRace = function (array) {
+    return new Promise((resolve, reject) => {
+        if (array.length === 0) {
+            return;
+        }
+
+        array.forEach(async (item) => {
+            try {
+                const value = await item;
+                resolve(value);
+            } catch (err) {
+                reject(err);
+            }
+        });
+    });
+}
