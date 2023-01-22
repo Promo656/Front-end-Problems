@@ -155,13 +155,28 @@ Promise.myRace = function (array) {
             return;
         }
 
-        array.forEach(async (item) => {
+        array.forEach(async item => {
             try {
                 const value = await item;
                 resolve(value);
-            } catch (err) {
-                reject(err);
+            } catch (error) {
+                reject(error)
             }
-        });
-    });
+        })
+    })
+}
+
+const p1 = new Promise(res => setTimeout(res, 100, "one"))
+
+const p2 = new Promise(res => setTimeout(res, 200, "two"))
+
+Promise.myRace([p1, p2]).then(response => {
+    console.log(response)
+})
+
+// Implement sum function
+function sum(a) {
+    return function (b) {
+        return b === undefined ? a : sum(a + b);
+    }
 }
