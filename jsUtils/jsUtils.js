@@ -110,7 +110,7 @@ function uniqueArray3(array) {
     return result;
 }
 
-console.log(uniqueArray2(Array.from({length: 20}, () => Math.floor(Math.random() * 20))))
+// console.log(uniqueArray2(Array.from({length: 20}, () => Math.floor(Math.random() * 20))))
 
 
 // Implement Array.prototype.filter
@@ -238,3 +238,27 @@ function isPlainObjectAlternative(value) {
 
     return Object.getPrototypeOf(value) === proto;
 }
+
+// Implement a curry function
+function curry(func) {
+    debugger
+    return function curried(...args) {
+        debugger
+        if (args.length >= func.length) {
+            return func.apply(this, args)
+        }
+
+        return function (...args2) {
+            debugger
+            return curried.apply(this, [...args, ...args2])
+        }
+    }
+}
+
+function multiplyThree(a, b, c) {
+    return a * b * c;
+}
+
+const curriedMultiplyThree = curry(multiplyThree);
+curriedMultiplyThree(4)(5)(6); // 120
+
