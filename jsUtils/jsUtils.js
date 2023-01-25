@@ -27,7 +27,7 @@ Array.prototype.square = function () {
     return array;
 }
 
-// Implement Lodash's Get method
+// Implement Lodash's Get function
 function get(object, path, defaultValue) {
     const pathArray = Array.isArray(path) ? path : path.split('.');
     const length = pathArray.length;
@@ -42,7 +42,7 @@ function get(object, path, defaultValue) {
     return value !== undefined ? lastObject : defaultValue;
 }
 
-// Implement Lodash's Once method
+// Implement Lodash's Once function
 function once(func) {
     let instance = null;
 
@@ -80,7 +80,7 @@ function isUndefined(value) {
     return value === undefined
 }
 
-// Implement Unique Array
+// Implement Unique Array function
 // 1. Converting to Set then back
 function uniqueArray1(array) {
     return Array.from(new Set(array));
@@ -241,15 +241,12 @@ function isPlainObjectAlternative(value) {
 
 // Implement a curry function
 function curry(func) {
-    debugger
     return function curried(...args) {
-        debugger
         if (args.length >= func.length) {
             return func.apply(this, args)
         }
 
         return function (...args2) {
-            debugger
             return curried.apply(this, [...args, ...args2])
         }
     }
@@ -262,3 +259,25 @@ function multiplyThree(a, b, c) {
 const curriedMultiplyThree = curry(multiplyThree);
 curriedMultiplyThree(4)(5)(6); // 120
 
+// Implement debounce function
+function debounce(func, wait=0) {
+    let timeoutId = null;
+    return function (...args) {
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(() => {
+            timeoutId = null;
+            func.apply(this, args)
+        }, wait)
+    }
+}
+
+
+/*
+module.exports = {
+    map: Array.prototype.myMap,
+    square: Array.prototype.square,
+    get,
+    once: once,
+    isObject
+}*/
