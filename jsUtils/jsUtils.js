@@ -260,7 +260,7 @@ const curriedMultiplyThree = curry(multiplyThree);
 curriedMultiplyThree(4)(5)(6); // 120
 
 // Implement debounce function
-function debounce(func, wait=0) {
+function debounce(func, wait = 0) {
     let timeoutId = null;
     return function (...args) {
         clearTimeout(timeoutId);
@@ -272,12 +272,26 @@ function debounce(func, wait=0) {
     }
 }
 
+// Implement Lodash's limit function
+function limit(func, n) {
+    let count = 0;
+    let value;
+    debugger
+    return function (...args) {
+        debugger
+        if (count < n) {
+            value = func.apply(this, args);
+            count++;
+        }
+        return value;
+    }
+}
 
-/*
-module.exports = {
-    map: Array.prototype.myMap,
-    square: Array.prototype.square,
-    get,
-    once: once,
-    isObject
-}*/
+let i = 1;
+
+function incrementBy(value) {
+    i += value;
+    return i;
+}
+
+const threeTimes = limit(incrementBy, 3)
