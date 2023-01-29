@@ -295,3 +295,20 @@ function incrementBy(value) {
 }
 
 const threeTimes = limit(incrementBy, 3)
+
+// Implement Lodash's throttle function
+function throttle(func, wait) {
+    let shouldTrottle = false;
+
+    return function (...args) {
+        if (shouldTrottle) {
+            return
+        }
+
+        shouldTrottle = true;
+        setTimeout(function () {
+            shouldTrottle = false;
+        }, wait)
+        func.apply(this, args)
+    }
+}
