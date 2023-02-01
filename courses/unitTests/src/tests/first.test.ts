@@ -1,4 +1,4 @@
-const fizzBuzz = (num) => {
+export const fizzBuzz = (num: number) => {
   if (num % 15 === 0) {
     return "FizzBuzz";
   } else if (num % 3 === 0) {
