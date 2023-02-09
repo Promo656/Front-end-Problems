@@ -1,16 +1,18 @@
 import userEvent from "@testing-library/user-event";
 import {render, screen} from "@testing-library/react";
+import { logRoles } from '@testing-library/dom'
 import {MemoryRouter} from "react-router-dom";
 import {App} from "./App";
 
 test("When 'Add new person' clicked on HomePage, should go to NewPersonPage", async () => {
     const {click} = userEvent.setup()
-    render(
+   const {container}= render(
         <MemoryRouter>
             <App/>
         </MemoryRouter>
     )
 
+    logRoles(container)
     await click(screen.getByText("Add new person"));
 
     expect(await screen.findByText("New person")).toBeInTheDocument()

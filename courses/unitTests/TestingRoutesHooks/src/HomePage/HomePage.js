@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import css from "./HomePage.module.css";
-import {useTitle} from "courses/unitTests/TestingRoutesHooks/src/hooks/useTitle/useTitle";
+import {useTitle} from "../hooks/useTitle/useTitle";
 
 export function HomePage() {
     useTitle("My App - Home")
