@@ -13,8 +13,8 @@ export async function addPerson(person) {
         })
     );
     if (!response.ok) {
-        return {ok: false};
+        return { ok: false };
     }
     const data = await response.json();
-    return {ok: true, id: data.id};
+    return { ok: true, id: data.id };
 }

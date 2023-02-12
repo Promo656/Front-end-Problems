@@ -1,5 +1,5 @@
 import {renderHook} from "@testing-library/react-hooks"
-import {useTitle} from "courses/unitTests/TestingRoutesHooks/src/hooks/useTitle/useTitle";
+import {useTitle} from "./useTitle";
 
 test("Should set document title", async () => {
     renderHook(() => useTitle("test"))
