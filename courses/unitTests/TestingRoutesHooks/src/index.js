@@ -6,12 +6,8 @@ import {App} from "./App";
 const rootElement = document.getElementById("root")
 const root = createRoot(rootElement)
 
-export const arr = []
-
 root.render(
     <BrowserRouter>
         <App/>
     </BrowserRouter>
-    ,
-    document.getElementById("root")
 );
