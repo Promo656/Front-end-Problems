@@ -1,7 +1,7 @@
 import {getDriver} from './helpers';
-import {ThenableWebDriver, until, By, Key} from "selenium-webdriver"
+import {By, Key, until, WebDriver} from "selenium-webdriver"
 
-let driver: ThenableWebDriver;
+let driver: WebDriver;
 beforeAll(async () => (driver = getDriver()));
 afterAll(async () => await driver.quit());
 

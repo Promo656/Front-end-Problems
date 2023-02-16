@@ -5,9 +5,9 @@ import {Input} from "./index";
 describe("Input", () => {
     const placeholder = "Enter new task"
     it("should be render in the document", () => {
+        const mockOnSubmit = jest.fn()
         render(
-            <Input onSubmit={() => {
-            }}/>
+            <Input onSubmit={mockOnSubmit}/>
         )
         expect(screen.queryByPlaceholderText(placeholder)).toBeInTheDocument()
     })

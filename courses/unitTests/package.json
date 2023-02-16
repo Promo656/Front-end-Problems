@@ -45,6 +45,9 @@
     "setupFilesAfterEnv": [
       "<rootDir>/jest-config.ts"
     ],
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.(css|sass)$": "<rootDir>/__mocks__/styleMock.ts"
+    }
   }
 }
