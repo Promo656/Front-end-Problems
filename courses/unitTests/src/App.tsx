@@ -12,7 +12,6 @@ export const App = () => {
     const handleSubmit = (label) => setTasks([...tasks, {id: Math.random() * tasks.length, label, completed: false}])
 
     const handleToggleTask = (taskIdx) => {
-        debugger
         const newTasks = [...tasks];
         newTasks[taskIdx] = {...newTasks[taskIdx], completed: !newTasks[taskIdx].completed};
         setTasks(newTasks);
