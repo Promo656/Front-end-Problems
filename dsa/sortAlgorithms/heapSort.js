@@ -35,7 +35,6 @@ const heapify = (arr, lastParentIdWithChildren, len) => {
 }
 
 const heapSort = (arr) => {
-    debugger
     buildMaxHeap(arr);
 
     let lastIdx = arr.length - 1;
