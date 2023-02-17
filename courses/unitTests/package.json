@@ -6,7 +6,7 @@
     "json-server": "json-server --watch db.json --port 3001",
     "build": "webpack .",
     "test": "jest src",
-    "integration-test": "jest integration-test"
+    "integration-tests": "/bin/bash ./reset-db.sh && jest integration-tests && /bin/bash ./reset-db.sh"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",

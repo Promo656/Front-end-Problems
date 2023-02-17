@@ -1,6 +1,6 @@
 import {Input} from "./components/Input";
 import {TaskList} from "./components/TaskList";
-import {useState} from "react";
+import {useTasks} from "./hooks/useTasks";
 
 export type TaskType = {
     label: string
@@ -8,19 +8,12 @@ export type TaskType = {
     id: number
 }
 export const App = () => {
-    const [tasks, setTasks] = useState<TaskType[]>([])
-    const handleSubmit = (label) => setTasks([...tasks, {id: Math.random() * tasks.length, label, completed: false}])
-
-    const handleToggleTask = (taskIdx) => {
-        const newTasks = [...tasks];
-        newTasks[taskIdx] = {...newTasks[taskIdx], completed: !newTasks[taskIdx].completed};
-        setTasks(newTasks);
-    };
+    const [tasks,{addTask,toggleTask}] = useTasks();
 
     return (
         <div>
-            <Input onSubmit={handleSubmit}/>
-            <TaskList tasks={tasks} onToggleTask={handleToggleTask}/>
+            <Input onSubmit={addTask}/>
+            <TaskList tasks={tasks} onToggleTask={toggleTask}/>
         </div>
     )
 }

@@ -12,7 +12,10 @@ type UseTasksType = [
 export const useTasks = (): UseTasksType => {
     const [tasks, setTasks] = useState<TaskType[] | null>(null);
     const refreshTasks = async () => {
-        setTasks(await getTasks());
+        const tasks = await getTasks()
+        if (tasks != null) {
+            setTasks(tasks);
+        }
     };
     const toggleTask = async (index) => {
         if (tasks) {

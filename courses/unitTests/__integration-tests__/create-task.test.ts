@@ -2,7 +2,7 @@ import {getDriver} from './helpers';
 import {By, Key, until, WebDriver} from "selenium-webdriver"
 
 let driver: WebDriver;
-beforeAll(async () => (driver = getDriver()));
+beforeAll(() => (driver = getDriver()));
 afterAll(async () => await driver.quit());
 
 test("should create tasks", async () => {
