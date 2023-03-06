@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "production",
-  entry: "./src/index.js",
+  entry: "./src/solutions.js",
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "[name].[contenthash].js",
