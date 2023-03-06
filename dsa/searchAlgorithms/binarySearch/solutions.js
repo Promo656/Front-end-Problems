@@ -115,3 +115,39 @@ const solution5 = (a) => {
     return a[end];
 }
 // console.log(solution5([10, 23, 32, 46, 54, 61, 74, 62, 59, 48, 36, 25, 13]));
+
+//--------------------------------------------------------------------------------------------//
+
+function solution6(nums) {
+    if (nums[0] > 0 || nums[nums.length - 1] < 0) {
+        return nums.length
+    }
+
+    const findLastNegativeIndex = (nums) => {
+        let start = 0, end = nums.length - 1;
+        while (start < end) {
+            let mid = Math.ceil((start + end) / 2);
+            if (nums[mid] < 0) {
+                start = mid;
+            } else {
+                end = mid - 1;
+            }
+        }
+        return nums[0] >= 0 ? 0 : start + 1
+    }
+
+    const findFirstPositiveIndex = (nums) => {
+        let start = 0, end = nums.length - 1;
+        while (start < end) {
+            let mid = Math.floor((start + end) / 2);
+            if (nums[mid] > 0) {
+                end = mid;
+            } else {
+                start = mid + 1;
+            }
+        }
+        return nums[nums.length - 1] <= 0 ? 0 : nums.length - start
+    }
+
+    return Math.max(findLastNegativeIndex(nums), findFirstPositiveIndex(nums))
+}
