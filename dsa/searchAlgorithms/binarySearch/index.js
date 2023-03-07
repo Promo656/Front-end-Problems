@@ -1,31 +1,28 @@
 const commonBinarySearch = (array, target) => {
-    const length = array.length
     let start = 0;
-    let end = length - 1
+    let end = array.length - 1;
     let middle;
-    let guess;
+
     while (start <= end) {
         middle = start + Math.floor((end - start) / 2)
-        guess = array[middle]
-        if (target === guess) {
+        if (array[middle] === target) {
             return middle
-        } else if (guess > target) {
+        } else if (array[middle] > target) {
             end = middle - 1
         } else {
             start = middle + 1
         }
     }
-    return -1;
+    return -1
 }
 
 const mirrorBinarySearch = (array) => {
-    const length = array.length;
-    if (length === 0) {
+    if (array.length === 0) {
         return "Not found"
     }
     let start = 0;
-    let end = length - 1
-    let middle
+    let end = array.length - 1;
+    let middle;
 
     while (start < end) {
         middle = start + Math.floor((end - start) / 2)
@@ -38,7 +35,41 @@ const mirrorBinarySearch = (array) => {
     return array[end]
 }
 
+const rotatedBinarySearchMax = (array) => {
+    let start = 0;
+    let end = array.length - 1;
+    let middle;
+
+    while (start < end) {
+        middle = start + Math.floor((end - start) / 2)
+        if (array[middle] > array[start]) {
+            start = middle + 1;
+        } else {
+            end = middle
+        }
+    }
+    return array[end]
+}
+
+const rotatedBinarySearchMin = (array) => {
+    let start = 0;
+    let end = array.length - 1;
+    let middle;
+
+    while (start < end) {
+        middle = start + Math.floor((end - start) / 2)
+        if (array[middle] > array[end]) {
+            start = middle + 1
+        } else {
+            end = middle
+        }
+    }
+    return array[start]
+}
+
 module.exports = {
     commonBinarySearch,
-    mirrorBinarySearch
+    mirrorBinarySearch,
+    rotatedBinarySearchMax,
+    rotatedBinarySearchMin
 }
