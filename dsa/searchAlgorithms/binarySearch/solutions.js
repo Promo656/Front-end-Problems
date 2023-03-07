@@ -151,3 +151,15 @@ function solution6(nums) {
 
     return Math.max(findLastNegativeIndex(nums), findFirstPositiveIndex(nums))
 }
+//--------------------------------------------------------------------------------------------//
+function solution7(arr, k) {
+    let l = 0;
+    let r = arr.length
+    let mid
+    while (l < r) {
+        mid = Math.floor((l + r) / 2);
+        if (arr[mid] - 1 - mid < k) l = mid + 1;
+        else r = mid;
+    }
+    return l + k;
+}
