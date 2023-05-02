@@ -1,7 +1,6 @@
 const {main} = require("./blocks/main")
 
 main()
-
 /*
 const bs = (arr)=>{
 
@@ -9,3 +8,4 @@ const bs = (arr)=>{
 
 export default bs
 */
+
